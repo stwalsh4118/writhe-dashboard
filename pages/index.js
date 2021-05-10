@@ -3,19 +3,24 @@ import Track from "../components/Track"
 import {useState, useEffect} from "react"
 import useSWR from "swr"
 
+const fetcher = (...args) => {return fetch(...args).then(res => res.json())};
+
 export default function Home() {
 
-    const fetcher = (...args) => fetch(...args).then(res => res.json())
-    const {tracks, error} = useSWR('/api/top-artists', fetcher)
+    const {data, error} = useSWR("/api/top-tracks", fetcher);
 
-	console.log(tracks)
+	console.log(data)
 
-    if(error) return <div>failed to load</div>
-    if(!tracks) return <div>loading...</div>
+    if (error) {return <div>failed to load</div>};
+    if (!data) {return <div>loading...</div>};
 
-    return (
-        <div>
-            {}
-        </div>
+
+	console.log(data)
+
+    return (<>
+	{data.tracks.map(track => <Track title={track.title} songURL={track.songUrl} artist={track.artist} key={track.songUrl}/>)}
+	</>
+        
+
     )
 }
