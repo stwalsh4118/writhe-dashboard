@@ -1,9 +1,15 @@
 
-
-export default function Track({artist, songURL, title}) {
+export default function Track({number, artist, songURL, title}) {
 
     return(
-        <div className="w-60 h-30 shadow-md bg-gray-200">{artist} {songURL} {title}</div>
+                <div className="flex flex-row space-y-2">
+                    <span className="text-white p">{number}</span>
+                    <div className="flex flex-col space-y-2 pl-5">
+                        <a href={songURL} target="_blank" className="text-3xl text-white">{title}</a>
+                        <h2 className="text-[#B2B2B2]">By: {artist}</h2>  
+                    </div>
+                        
+                </div>
     )
 
 }
