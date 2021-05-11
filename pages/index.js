@@ -9,7 +9,10 @@ const fetcher = (...args) => {return fetch(...args).then(res => res.json())};
 
 export default function Home() {
 
-	document.querySelector("html").style.backgroundColor="black"
+	useEffect(() => {
+		document.querySelector("html").style.backgroundColor="black"
+	})
+
 
 	function getTopTracks() {
 		const {data, error} = useSWR("/api/top-tracks", fetcher);
