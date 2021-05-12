@@ -27,7 +27,7 @@ export default function Home() {
 	
 		return (
 		<>
-			{data.tracks.map((track,index) => <Track number={index+1} title={track.title} songURL={track.songUrl} artist={track.artist} key={track.songUrl}/>)}
+			{data.tracks.map((track,index) => <Track number={index+1} title={track.title} image={track.image} songURL={track.songUrl} artist={track.artist} key={track.songUrl}/>)}
 		</>)
 	}
     
