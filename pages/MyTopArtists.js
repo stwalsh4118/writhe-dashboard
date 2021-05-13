@@ -12,6 +12,7 @@ export default function MyTopArtists() {
 
 	useEffect(() => {
 		document.querySelector("html").style.backgroundColor="black"
+        document.title = "My Top Artists"
 	})
 
 

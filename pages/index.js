@@ -11,6 +11,7 @@ export default function Home() {
 
 	useEffect(() => {
 		document.querySelector("html").style.backgroundColor="black"
+		document.title = "Dashboard"
 	})
 
 
